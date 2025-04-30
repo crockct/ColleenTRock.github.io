@@ -29,7 +29,7 @@ tw-story {
 (enchant: ?ul, (text-size:0.8) + (text-color: green))
 
 }What a good morning this is.
-{ |ul&gt;[(link-show: &quot;I agree&quot;, ?r2)]
+{|ul&gt;[(link-show: &quot;I agree&quot;, ?r2)]
 |r1a&gt;[[[I mean, it&#39;s ok-&gt;Just Ok]]]
 
 }|r2)[(hide: ?r1a)
@@ -58,7 +58,7 @@ I could just keep on saying good morning all day, you know?
 (t8n-arrive: &quot;zoom&quot;)+(t8n-time:2.0s)[[Yes! Well, figuratively.-&gt;Figuratively Yes]]
 
 
-}]]]]]</tw-passagedata><tw-passagedata pid="3" name="Not Antonia" tags="" position="1000,200" size="100,100">{(if: (visited: &quot;Skeptical&quot;))[(goto:&quot;My Word&quot;)]
+}]]]]]</tw-passagedata><tw-passagedata pid="3" name="Not Antonia" tags="" position="1000,200" size="100,100">{(if: (visited: &quot;Skeptical&quot;))[(redirect:&quot;My Word&quot;)]
 (set: $player to &quot;Jasper&quot;)
 
 }Oh, my bad. In that case you must be
@@ -116,12 +116,13 @@ I&#39;ve seen aspects  hidden from others, even yourself-&gt;Know 2]]
 &lt;!--Button Style--&gt;
 (enchant:?link, $p)
 
-(if:(passage:)&#39;s tags contains &quot;ending&quot;)[
-(align:&quot;==&gt;&quot;)[(icon-restart:) (b4r:&quot;solid&quot;) + (size:0.5)[End. Click to refresh.]]
-]
+}(if:(passage:)&#39;s tags contains &quot;ending&quot;)[{
+(align:&quot;==&gt;&quot;)[(icon-restart: &quot;End. Click to refresh.&quot;)]
+}]
 
 
-}</tw-passagedata><tw-passagedata pid="13" name="header" tags="header" position="400,0" size="100,100">{
+
+</tw-passagedata><tw-passagedata pid="13" name="header" tags="header" position="400,0" size="100,100">{
 &lt;!--Button Style--&gt;
 (set: $p to 
 	(b4r:&quot;solid&quot;) + 
@@ -179,7 +180,8 @@ _delay16(_GM:)					_delay20(_GM:)_delay16(_GM:)					_delay20(_GM:)
 
 (either: &quot;Good morning, $player.&quot;, &quot;What a good morning this is!&quot;, &quot;I hope you&#39;re having a good morning!&quot;, &quot;Hello $player, and good morning&quot;, &quot;Top o&#39; the good morning to ya!&quot;, &quot;If this isn&#39;t a good morning, I don&#39;t know what is!&quot;, &quot;Bad morning... just kidding! Good morning!&quot;, &quot;Good — dare I say great? — morning!&quot;, &quot;My my my, what a good morning this is&quot;,&quot;Good morning&quot;)}
 
-[[(either: &quot;Good morning to you!&quot;, &quot;Right back at you&quot;, &quot;Good morning&quot;)-&gt;Literally Yes]]{
+{[[(either: &quot;Good morning to you!&quot;, &quot;Right back at you&quot;, &quot;Good morning&quot;)-&gt;Literally Yes]](align:&quot;==&gt;&quot;)
+[(icon-restart:)]
 
 &lt;!-- After 45 cycles, &quot;it is night&quot; --&gt;
 (if: $reps is 15)[(set: $bggradient to (gradient: 0, 0, #000000, 1, #AC89EE))
@@ -192,11 +194,10 @@ _delay16(_GM:)					_delay20(_GM:)_delay16(_GM:)					_delay20(_GM:)
 ]
 (if: $reps is 35)[(set: $bggradient to (gradient: 0, 0, #000000, 1, #7a524c))
 ]
-(if: $reps is 45)[(set: $bggradient to (gradient: 0, 0, #000000, 1, #3B2F2F))(go-to:&quot;Night&quot;)
+(if: $reps &gt; 45)[(set:$reps to 0)(set: $bggradient to (gradient: 0, 0, #000000, 1, #3B2F2F))(go-to:&quot;Night&quot;)
 ]
 }</tw-passagedata><tw-passagedata pid="17" name="Night" tags="ending" position="125,175" size="100,100">Night has fallen. 
-(set: $bggradient to (gradient: 0, 0, #000000, 1, #27A7FA))
-</tw-passagedata><tw-passagedata pid="18" name="startup" tags="startup" position="200,0" size="100,100">{
+(set: $bggradient to (gradient: 0, 0, #000000, 1, #27A7FA))</tw-passagedata><tw-passagedata pid="18" name="startup" tags="startup" position="200,0" size="100,100">{
 
 (set: $reps to 0)
 
@@ -210,7 +211,8 @@ _delay16(_GM:)					_delay20(_GM:)_delay16(_GM:)					_delay20(_GM:)
 
 
 
-}</tw-passagedata><tw-passagedata pid="19" name="User Error" tags="ending" position="900,25" size="100,100">That&#39;s just user error.</tw-passagedata><tw-passagedata pid="20" name="So-so 1" tags="" position="400,550" size="100,100">That&#39;s how these things go sometimes. We say &quot;Good morning&quot; even though it&#39;s only, like... there&#39;s not anything particularly or especially good, per se... just to have something to say... you know what I&#39;m getting at?
+}</tw-passagedata><tw-passagedata pid="19" name="User Error" tags="ending" position="900,25" size="100,100">That&#39;s just user error.
+</tw-passagedata><tw-passagedata pid="20" name="So-so 1" tags="" position="400,550" size="100,100">That&#39;s how these things go sometimes. We say &quot;Good morning&quot; even though it&#39;s only, like... there&#39;s not anything particularly or especially good, per se... just to have something to say... you know what I&#39;m getting at?
 
 [[Yeah. I think that&#39;s a common thing with pleasantries-&gt;So-so 2]]</tw-passagedata><tw-passagedata pid="21" name="Bad Morning" tags="ending" position="575,400" size="100,100">Sorry to hear that... but thank you for sharing. Sometimes it&#39;s hard to admit how you&#39;re doing, even to yourself.
 
@@ -219,15 +221,17 @@ You know, I&#39;m not really equipped to have anything resembling a &quot;real&q
 But you, you&#39;re a person. There are people (like Raymond) who love you, people who can say and do a lot more than I can. They&#39;re like //limitless// dialog trees. If you&#39;re having a bad day, consider reaching out to one of them. Maybe they can help turn your day around. Perhaps not - people are complicated. But I&#39;d say it&#39;s worth a try.</tw-passagedata><tw-passagedata pid="22" name="Awkward 3" tags="" position="100,725" size="100,100">(text-color:red)[**!!**] You&#39;ve seen right through me.
 
 [[You don&#39;t say-&gt;Awkward 4]]</tw-passagedata><tw-passagedata pid="23" name="format" tags="" position="150,850" size="100,100">(set: $bggradient to white)
-(go-to: &quot;Profit&quot;)</tw-passagedata><tw-passagedata pid="24" name="Profit" tags="ending" position="175,875" size="100,100">{(set: $bggradient to (gradient: 0, 0, #000000, 1, #27A7FA))
+(redirect: &quot;Profit&quot;)</tw-passagedata><tw-passagedata pid="24" name="Profit" tags="ending" position="175,875" size="100,100">{(set: $bggradient to (gradient: 0, 0, #000000, 1, #27A7FA))
 
 }(color:black) + (font:&quot;Times New Roman&quot;) + (align:&quot;&lt;=&quot;)[**Plan: Annoy friends
 (todo) Link them to my Papal
 ???
 Profit $$**]
 
-[(align:&quot;==&gt;&quot;)[(color:black)(icon-restart:) (b4r:&quot;solid&quot;) + (size:0.5) + (color:gray)[End. Click to refresh.]]]
-|hidefooter)[==</tw-passagedata><tw-passagedata pid="25" name="Awkward 4" tags="" position="225,725" size="100,100">{
+[(align:&quot;==&gt;&quot;)[(color:black)(icon-restart:) (b4r:&quot;solid&quot;) + (size:0.5) + (color:gray)[End. Click to refresh.]]]{
+
+|hidefooter)[==
+}</tw-passagedata><tw-passagedata pid="25" name="Awkward 4" tags="" position="225,725" size="100,100">{
 
 (enchant: ?ul, (text-size:0.8) + (text-color: green))
 
@@ -304,7 +308,8 @@ Every day up you can unmade that decision, write flavors in excess of wisdom, bu
 
 
 
-&quot;, &quot;Know 5&quot;)</tw-passagedata><tw-passagedata pid="31" name="Forgiveness 2" tags="" position="825,500" size="100,100">This whole &quot;Who are you?&quot; debacle has brought us closer. You feel it too, right? It&#39;s like I can trust you with anything. Is it ok if I make a confession?
+&quot;, &quot;Know 5&quot;)
+</tw-passagedata><tw-passagedata pid="31" name="Forgiveness 2" tags="" position="825,500" size="100,100">This whole &quot;Who are you?&quot; debacle has brought us closer. You feel it too, right? It&#39;s like I can trust you with anything. Is it ok if I make a confession?
 
 {
 [[Of course-&gt;Forgiveness 3]]
@@ -344,11 +349,11 @@ Every day up you can unmade that decision, write flavors in excess of wisdom, bu
 
 [[I&#39;m ready to question the methodology of this quiz-&gt;Quiz 6]]</tw-passagedata><tw-passagedata pid="41" name="Quiz 6" tags="ending" position="1550,525" size="100,100">You&#39;re a $result!</tw-passagedata><tw-passagedata pid="42" name="So-so 2" tags="" position="400,675" size="100,100">Yeah, pleasantries. Those things... for sure...
 
-[[Are you good?-&gt;So-so 3]]</tw-passagedata><tw-passagedata pid="43" name="So-so 3" tags="" position="400,800" size="100,100">Me? Oh, yeah. I&#39;m a little stuck is all. I&#39;m almost finished with this &quot;Good Morning&quot; shindig, but I&#39;m not sure what to write on this page.
+[[Are you good?-&gt;So-so 3]]</tw-passagedata><tw-passagedata pid="43" name="So-so 3" tags="" position="525,550" size="100,100">Me? Oh, yeah. I&#39;m a little stuck is all. I&#39;m almost finished with this &quot;Good Morning&quot; shindig, but I&#39;m not sure what to write on this page.
 
 It&#39;s not like you&#39;ve given me much to work with, //Just-doing-ok-$player//. How am I supposed to play off that? Honestly, any okayness I&#39;m feeling right now is your fault!
 
-[[Hey now, no need to turn on me-&gt;So-so 4]]</tw-passagedata><tw-passagedata pid="44" name="So-so 4" tags="" position="400,925" size="100,100">I know, you&#39;re right. I&#39;m sorry. Division is not the path forward.
+[[Hey now, no need to turn on me-&gt;So-so 4]]</tw-passagedata><tw-passagedata pid="44" name="So-so 4" tags="" position="525,675" size="100,100">I know, you&#39;re right. I&#39;m sorry. Division is not the path forward.
 
 Well... that&#39;s all I&#39;ve got for now. Feel free to refresh the page and check out some other branches.
 
@@ -383,9 +388,9 @@ Well... that&#39;s all I&#39;ve got for now. Feel free to refresh the page and c
 
 
 $p+ (size:0.8)+ (box: &quot;===X&quot;)[[But what if I don&#39;t?-&gt;Nuisance 1]]
-|hidefooter)[==</tw-passagedata><tw-passagedata pid="45" name="Nuisance 1" tags="" position="575,800" size="100,100">Excuse me?
+|hidefooter)[==</tw-passagedata><tw-passagedata pid="45" name="Nuisance 1" tags="" position="450,800" size="100,100">Excuse me?
 
-[[What if we just keep hangin&#39;?-&gt;Nuisance 2]]</tw-passagedata><tw-passagedata pid="46" name="Nuisance 2" tags="" position="700,800" size="100,100">I mean, it&#39;s been fun. I&#39;m just not in the mood right now.
+[[What if we just keep hangin&#39;?-&gt;Nuisance 2]]</tw-passagedata><tw-passagedata pid="46" name="Nuisance 2" tags="" position="575,800" size="100,100">I mean, it&#39;s been fun. I&#39;m just not in the mood right now.
 
 I&#39;d be happy to some other time, but I&#39;m calling it here.
 
@@ -420,15 +425,15 @@ I&#39;d be happy to some other time, but I&#39;m calling it here.
 
 
 $p+ (size:0.5)+ (box: &quot;=====X&quot;)[[Nah.-&gt;Nuisance 3]]
-|hidefooter)[==</tw-passagedata><tw-passagedata pid="47" name="Nuisance 3" tags="" position="825,800" size="100,100">&quot;Nah?&quot; Come on now.
+|hidefooter)[==</tw-passagedata><tw-passagedata pid="47" name="Nuisance 3" tags="" position="700,800" size="100,100">&quot;Nah?&quot; Come on now.
 
-[[Hehehe-&gt;Nuisance 4]]</tw-passagedata><tw-passagedata pid="48" name="Nuisance 4" tags="" position="950,800" size="100,100">You know, I&#39;ve titled this thread &quot;Nuisance.&quot; You&#39;re in &quot;(print: (passage:)&#39;s name)&quot; right now. How does that make you feel?
+[[Hehehe-&gt;Nuisance 4]]</tw-passagedata><tw-passagedata pid="48" name="Nuisance 4" tags="" position="825,800" size="100,100">You know, I&#39;ve titled this thread &quot;Nuisance.&quot; You&#39;re in &quot;(print: (passage:)&#39;s name)&quot; right now. How does that make you feel?
 
-[[Good about myself-&gt;Nuisance 5]]</tw-passagedata><tw-passagedata pid="49" name="Nuisance 5" tags="" position="650,925" size="100,100">Grr...
+[[Good about myself-&gt;Nuisance 5]]</tw-passagedata><tw-passagedata pid="49" name="Nuisance 5" tags="" position="525,925" size="100,100">Grr...
 
-[[You&#39;re the one creating these inputs. You&#39;re doing this to yourself-&gt;Nuisance 6]]</tw-passagedata><tw-passagedata pid="50" name="Nuisance 6" tags="" position="775,925" size="100,100">And you&#39;re a (print: (passage:)&#39;s name).
+[[You&#39;re the one creating these inputs. You&#39;re doing this to yourself-&gt;Nuisance 6]]</tw-passagedata><tw-passagedata pid="50" name="Nuisance 6" tags="" position="650,925" size="100,100">And you&#39;re a (print: (passage:)&#39;s name).
 
-[[Why you bugging yourself? Why you bugging yourself?-&gt;Nuisance 7]]</tw-passagedata><tw-passagedata pid="51" name="Nuisance 7" tags="ending" position="900,925" size="100,100">You know what? You have a point. This is the end, fr frealsies.
+[[Why you bugging yourself? Why you bugging yourself?-&gt;Nuisance 7]]</tw-passagedata><tw-passagedata pid="51" name="Nuisance 7" tags="ending" position="775,925" size="100,100">You know what? You have a point. This is the end, fr frealsies.
 
 (size:4)+(font:&quot;Times New Roman&quot;)[FIN]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
