@@ -9,11 +9,15 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Good Morning.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Good Morning" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="8848573E-DC6C-454D-B326-01C411BE430C" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*
+<tw-storydata name="Good Morning" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="8848573E-DC6C-454D-B326-01C411BE430C" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 tw-sidebar {
 	display: none;
 }
-*/</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="purple"></tw-tag><tw-passagedata pid="1" name="Good Morning Antonia" tags="" position="700,100" size="100,100">Good Morning $player.
+
+tw-story {
+	padding: 5%;
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="purple"></tw-tag><tw-passagedata pid="1" name="Good Morning Antonia" tags="" position="700,100" size="100,100">Good Morning $player.
 
 {
 [[Good morning!-&gt;How good of a morning?]]
@@ -44,7 +48,7 @@ That&#39;s great! Im glad to we&#39;re both having good mornings!
 |r4a&gt;[(link-repeat: &quot;Looks like you&#39;re missing an apostrophe in &#39;I&#39;m&#39;&quot;)[(dialog: [Nuh Uh!], &quot;Uh huh.&quot;)]]
 
 }|r5)[(hide: ?r4a)
-There&#39;s nothing quite as good as good mornings. There&#39;s just something so .... good about them, you know? 
+There&#39;s nothing quite as good as good mornings. There&#39;s just something so.... good about them, you know? 
 {|ul&gt;[(link-show: &quot;Honestly I&#39;ve been thinking the same thing myself&quot;, ?r6)]
 |r5a&gt;[[[Ok, I&#39;ve had enough of this &quot;Good morning&quot; talk-&gt;Awkward 1]]]
 
@@ -58,7 +62,7 @@ I could just keep on saying good morning all day, you know?
 (set: $player to &quot;Jasper&quot;)
 
 }Oh, my bad. In that case you must be
-(live:0.3s)[$player(set: $player to (either: &quot;Alex&quot;, &quot;Jasper&quot;, &quot;Dave&quot;, &quot;Victor&quot;, &quot;Michael&quot;, &quot;Anna&quot;, &quot;Bridget&quot;, &quot;Justin&quot;, &quot;Kenneth&quot;, &quot;Tom&quot;, &quot;Edward&quot;, &quot;Clover&quot;, &quot;Noel&quot;))].
+(live:0.2s)[$player(set: $player to (either: &quot;Alex&quot;, &quot;Jasper&quot;, &quot;Dave&quot;, &quot;Victor&quot;, &quot;Michael&quot;, &quot;Anna&quot;, &quot;Bridget&quot;, &quot;Justin&quot;, &quot;Kenneth&quot;, &quot;Tom&quot;, &quot;Edward&quot;, &quot;Clover&quot;, &quot;Clover&quot;, &quot;Noel&quot;))].
 
 {
 [[Yes that is my name -&gt;Good Morning Antonia]]
@@ -84,7 +88,7 @@ Oh, so NOW you&#39;re Antonia? And I&#39;m just supposed to take your word for t
 
 {
 [[But I know you.-&gt;Know 1]]
-[[I&#39;m not sure who I am..-&gt;Quiz 1]]
+[[I&#39;m not sure who I am...-&gt;Quiz 1]]
 }</tw-passagedata><tw-passagedata pid="7" name="Know 1" tags="" position="1200,700" size="100,100">Continuing with the cryptic tone I see.
 
 {
@@ -132,7 +136,6 @@ I&#39;ve seen aspects  hidden from others, even yourself-&gt;Know 2]]
 
 &lt;!--Page Style--&gt;
 (change:?passage, 
-	(align:&quot;=&gt;&lt;=&quot;) +
 	(font:&quot;sans-serif&quot;) +
 	(background:transparent)
 )
@@ -140,8 +143,6 @@ I&#39;ve seen aspects  hidden from others, even yourself-&gt;Know 2]]
 
 (change:?page, (background:$bggradient)
 )
-
-(hide:?sidebar)
 }</tw-passagedata><tw-passagedata pid="14" name="Just Ok" tags="" position="400,425" size="100,100">Just Ok?
 
 {
@@ -170,14 +171,13 @@ Some believe that saying &quot;Good morning&quot; is mere small talk or even ban
 {
 _delay20(_GM:)		_delay16(_GM:)					_delay20(_GM:)
 }_delay10[
-So I say good morning to you, and I say it unapologetically: Good morning. You heard me right: Good morning! If that makes you scared, then I&#39;m sorry ... I mean, I&#39;m **not** sorry! Unapologetic! This will take me some getting used to. For one as schooled in decorum as myself, apologizing for giving offense is second nature. But telling the truth is first nature, and the truth is: if my saying good morning makes you uncomfortable, GET OVER IT! This isn&#39;t the first time I&#39;ve said it, and I promise it won&#39;t be the last.]
+So I say good morning to you, and I say it unapologetically: Good morning. You heard me right: Good morning! If that makes you scared, then I&#39;m sorry... I mean, I&#39;m **not** sorry! Unapologetic! This will take me some getting used to. For one as schooled in decorum as myself, apologizing for giving offense is second nature. But telling the truth is first nature, and the truth is: if my saying good morning makes you uncomfortable, GET OVER IT! This isn&#39;t the first time I&#39;ve said it, and I promise it won&#39;t be the last.]
 _delay16(_GM:)					_delay20(_GM:)_delay16(_GM:)					_delay20(_GM:)
 
-</tw-passagedata><tw-passagedata pid="16" name="Literally Yes" tags="" position="100,200" size="100,100">
-{(set: $reps to $reps +1)
+</tw-passagedata><tw-passagedata pid="16" name="Literally Yes" tags="" position="100,200" size="100,100">{(set: $reps to $reps +1)
 
 
-(either: &quot;Good morning, $player.&quot;, &quot;What a good morning this is!&quot;, &quot;I hope you&#39;re having a good morning!&quot;, &quot;Hello $player, and good morning&quot;, &quot;Top o&#39; the good morning to ya!&quot;, &quot;If this isn&#39;t a good morning, I don&#39;t know what is!&quot;, &quot;Bad morning ... just kidding! Good morning!&quot;, &quot;Good — dare I say great? — morning!&quot;, &quot;My my my, what a good morning this is&quot;,&quot;Good morning&quot;)}
+(either: &quot;Good morning, $player.&quot;, &quot;What a good morning this is!&quot;, &quot;I hope you&#39;re having a good morning!&quot;, &quot;Hello $player, and good morning&quot;, &quot;Top o&#39; the good morning to ya!&quot;, &quot;If this isn&#39;t a good morning, I don&#39;t know what is!&quot;, &quot;Bad morning... just kidding! Good morning!&quot;, &quot;Good — dare I say great? — morning!&quot;, &quot;My my my, what a good morning this is&quot;,&quot;Good morning&quot;)}
 
 [[(either: &quot;Good morning to you!&quot;, &quot;Right back at you&quot;, &quot;Good morning&quot;)-&gt;Literally Yes]]{
 
