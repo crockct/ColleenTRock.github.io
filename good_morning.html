@@ -102,10 +102,10 @@ I could just keep on saying good morning all day, you know?
 }]]]]]</tw-passagedata><tw-passagedata pid="3" name="Not player" tags="" position="1000,200" size="100,100">{(if: $skeptic)[(redirect:&quot;Victory&quot;)]
 
 }Oh, my bad. In that case you must be
-(live:0.2s)[$player(set: $player to (either: ...$names))].
+(live:0.2s)[(set: $tempplayer to (either: ...$names))$tempplayer].
 
 {
-[(link-reveal-goto:&quot;Yes that is my name&quot;, &quot;Good Morning player&quot;)[(set: $realplayer to $player)]]
+[(link-reveal-goto:&quot;Yes that is my name&quot;, &quot;Good Morning player&quot;)[(set: $player to $tempplayer)]]
 [[[Actually I&#39;m someone else -&gt;Who are you?]]]
 
 (change:?link, $p)
@@ -113,15 +113,17 @@ I could just keep on saying good morning all day, you know?
 
 {
 |response&gt;[[[You don&#39;t know me-&gt;Person Unknown]]]
-|response&gt;[[[Come to think of it, I am $realplayer-&gt;Skeptical]]]
-}</tw-passagedata><tw-passagedata pid="5" name="Skeptical" tags="" position="700,300" size="100,100">{(set: $player to &quot;\&quot;$realplayer\&quot;&quot;)
-(set: $skeptic to true)
+|response&gt;[[[Come to think of it, I am $player-&gt;Skeptical]]]
+}</tw-passagedata><tw-passagedata pid="5" name="Skeptical" tags="" position="700,300" size="100,100">{(set: $skeptic to true)
 
-Oh, so NOW you&#39;re $realplayer? And I&#39;m just supposed to take your word for that?}
+Oh, so NOW you&#39;re $player? And I&#39;m just supposed to take your word for that?}
 
 {
-|response&gt;[[[You&#39;re right. I&#39;m not $realplayer. Sorry for the dishonesty-&gt;Forgiveness 1]]]
-|response&gt;[[[I&#39;m just over here doing $realplayer things, being $realplayer, etc.-&gt;Good Morning player]]]
+[[[You&#39;re right. I&#39;m not $player. Sorry for the dishonesty-&gt;Forgiveness 1]]]
+[(link-reveal-goto:&quot;I&#39;m just over here doing $player things, being $player, etc.&quot;, &quot;Good Morning player&quot;)[(set: $player to (str:&#39;&quot;&#39; + $player + &#39;&quot;&#39;))]]
+
+
+(change:?link, $p)
 }</tw-passagedata><tw-passagedata pid="6" name="Person Unknown" tags="" position="1125,500" size="100,100">Well that&#39;s a cryptic response to my question.
 
 {
@@ -264,7 +266,6 @@ _delay16(_GM:)					_delay20(_GM:)_delay16(_GM:)					_delay20(_GM:)
 &lt;!--Names--&gt;
 (set: $names to (a: &quot;Alex&quot;, &quot;Jasper&quot;, &quot;Dave&quot;, &quot;Victor&quot;, &quot;Michael&quot;, &quot;Anna&quot;, &quot;Bridget&quot;, &quot;Justin&quot;, &quot;Kenneth&quot;, &quot;Tom&quot;, &quot;Edward&quot;, &quot;Clover&quot;, &quot;Antonia&quot;, &quot;Noel&quot;, &quot;Colleen&quot;, &quot;Camille&quot;, &quot;Emily&quot;, &quot;Evan&quot;, &quot;Vibhuti&quot;, &quot;Nika&quot;, &quot;Gnocchi&quot;, &quot;Caitlyn&quot;, &quot;Sophia&quot;, &quot;Olly&quot;))
 (set: $player to (either:...$names))
-(set: $realplayer to $player)
 
 
 }</tw-passagedata><tw-passagedata pid="19" name="User Error" tags="ending" position="900,25" size="100,100">That&#39;s just user error.
@@ -354,7 +355,7 @@ Every day up you can unmade that decision, write flavors in excess of wisdom, bu
 }(click-replace:?r2)[$clickedstyle[You&#39;re gonna tell me either way aren&#39;t you?]
 Absolutely] 
 
-</tw-passagedata><tw-passagedata pid="31" name="Forgiveness 3" tags="" position="950,500" size="100,100">I&#39;m not Antonia either.
+</tw-passagedata><tw-passagedata pid="31" name="Forgiveness 3" tags="" position="950,500" size="100,100">I&#39;m not $player either.
 
 |response&gt;[[[...-&gt;Forgiveness 4]]]</tw-passagedata><tw-passagedata pid="32" name="Forgiveness 4" tags="" position="700,625" size="100,100">Shocking, I know.
 
