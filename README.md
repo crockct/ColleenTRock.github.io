@@ -1,6 +1,8 @@
-My personal website, featuring my project and puppies.
+My personal website.
 
 ## Credits:
+Forked from https://github.com/RaymondCass/RaymondCass.github.io 
+Deployed using Github Pages [https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site]
 
 ## Template:
 Hyperspace by HTML5 UP
