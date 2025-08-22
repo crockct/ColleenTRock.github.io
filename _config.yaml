@@ -1,0 +1,4 @@
+# Jekyll config - specify recipes as a content folder
+collections:
+  recipes:
+    output: true
