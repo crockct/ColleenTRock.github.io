@@ -1,3 +1,5 @@
+baseurl: "/ColleenTRock.github.io"
+
 # Jekyll config - specify recipes as a content folder
 collections:
   recipes:
